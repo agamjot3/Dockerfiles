@@ -1,0 +1,32 @@
+
+###############################################################################
+###############################################################################
+##                                                                           ##
+## description     : Dockerfile                                              ##
+## author          : Agamjot Singh                                           ##
+## date            : 26/06/2021                                              ##
+## version         : 1.0                                                     ##
+###############################################################################
+###############################################################################
+
+FROM node:12.13.0-alpine
+
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+
+WORKDIR /home/node/app
+
+COPY package*.json ./
+
+COPY . ./
+
+USER node
+
+RUN npm install
+
+RUN yarn
+
+COPY --chown=node:node . .
+
+EXPOSE 8083
+
+CMD [ "node", "./server.js" ]
