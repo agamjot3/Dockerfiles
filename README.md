@@ -5,6 +5,11 @@ Basic Examples Of Dockerfiles
 This file is an example to create docker images for backend applications that use NodeJS & ExpressJS.
 It creates a docker image that runs the backend application on Port:8083(both internal & external)
 
+//Dockerfile-2
+This file is an example to create docker images for frontend applications that use ReactJS.
+It creates a docker image that runs nginx.
+
+
 
 // Docker-Compose File (docker-compose.yml)
 This file will spin up a docker container based on the image name provided.
